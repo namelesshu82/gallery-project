@@ -1,6 +1,9 @@
 const thumbnailContainer = document.querySelector('.thumbnail-wrapper');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const activeImg = document.querySelector('.activeImg');
 
-let catIndex = 1;
+const cats = [];
 
 function addThumbnail(imageSrc, title, description) {
   const thumbnailDiv = document.createElement('div');
@@ -28,73 +31,60 @@ function addThumbnail(imageSrc, title, description) {
   thumbnailContainer.appendChild(thumbnailDiv);
 }
 
-addThumbnail('img/img' + catIndex + '.jfif', 'Cat ' + catIndex, "Chill, I've got my paws on you.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.png', 'Cat ' + catIndex, "Can't handle this anymoar");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "I'm donezo with fixing stuff today");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "In the matrix.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "I can do better than u, hooman.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Big biznis here.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Unbothered.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Uuugh, crap.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Brain???");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "This not gonna end well");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Mmmmm");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Crazy, but free");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Ready to go fighting");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "It's over");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Don't forget to say uno");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "It's so over");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Errything is OK (maybe not).");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Meow.");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Amen");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Majestic");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Am I smart??");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "on appétite");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Ready, comrade");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Muhaha");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Terrorist brotherhood");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "How to fix, hmm");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Communism");
-catIndex = catIndex + 1;
-addThumbnail('img/img' + catIndex + '.jpg', 'Cat ' + catIndex, "Errrgh");
-catIndex = catIndex + 1;
+cats.push(['img/img1.jfif', 'Cat 1', "Chill, I've got my paws on you."]);
+cats.push(['img/img2.png', 'Cat 2', "Can't handle this anymoar."]);
+cats.push(['img/img3.jpg', 'Cat 3', "I'm donezo with fixing stuff today."]);
+cats.push(['img/img4.jpg', 'Cat 4', "In the matrix."]);
+cats.push(['img/img5.jpg', 'Cat 5', "I can do better than u, hooman."]);
+cats.push(['img/img6.jpg', 'Cat 6', "Big biznis here."]);
+cats.push(['img/img7.jpg', 'Cat 7', "Unbothered."]);
+cats.push(['img/img8.jpg', 'Cat 8', "Uuugh, crap."]);
+cats.push(['img/img9.jpg', 'Cat 9', "Brain???"]);
+cats.push(['img/img10.jpg', 'Cat 10', "This not gonna end well."]);
+cats.push(['img/img11.jpg', 'Cat 11', "Mmmmm."]);
+cats.push(['img/img12.jpg', 'Cat 12', "Crazy, but free."]);
+cats.push(['img/img13.jpg', 'Cat 13', "Ready to go fighting."]);
+cats.push(['img/img14.jpg', 'Cat 14', "It's over."]);
+cats.push(['img/img15.jpg', 'Cat 15', "Don't forget to say uno."]);
+cats.push(['img/img16.jpg', 'Cat 16', "it's so over."]);
+cats.push(['img/img17.jpg', 'Cat 17', "Errything is OK (maybe not)."]);
+cats.push(['img/img18.jpg', 'Cat 18', "Meow."]);
+cats.push(['img/img19.jpg', 'Cat 19', "Amen."]);
+cats.push(['img/img20.jpg', 'Cat 20', "Majestic."]);
+cats.push(['img/img21.jpg', 'Cat 21', "Am I smart??"]);
+cats.push(['img/img22.jpg', 'Cat 22', "Bon appétite."]);
+cats.push(['img/img23.jpg', 'Cat 23', "Ready, comrade."]);
+cats.push(['img/img24.jpg', 'Cat 24', "Muhaha."]);
+cats.push(['img/img25.jpg', 'Cat 25', "Terrorist brotherhood."]);
+cats.push(['img/img26.jpg', 'Cat 26', "How to fix, hmm."]);
+cats.push(['img/img27.jpg', 'Cat 27', "Communism."]);
+cats.push(['img/img28.jpg', 'Cat 28', "Errrgh."]);
+
+for (let i = 0; i < cats.length; i += 4) {
+  const thumbnailMatrix = document.createElement('div');
+  thumbnailMatrix.classList.add('matrix');
+  for (let j = 0; j < 4; j++) {
+    const catIndex = i + j;
+
+    if (catIndex >= cats.length) {
+      break;
+    }
+    const cat = cats[catIndex];
+    addThumbnail(cat[0], cat[1], cat[2]);
+    thumbnailMatrix.appendChild(thumbnailContainer.lastElementChild);
+  }
+  thumbnailContainer.appendChild(thumbnailMatrix);
+}
 
 
 const thumbnails = document.querySelectorAll('.thumbnail');
-const activeImg = document.querySelector('.activeImg');
+const matrices = document.querySelectorAll('.matrix');
+
 
 let descriptionsH = document.getElementsByClassName('description-hidden');
 
 for (let i = 0; i < descriptionsH.length; i++) {
     descriptionsH[i].style.display = "none";
-    descriptionsH[i].classList.add('description-hidden');
-    descriptionsH[i].classList.remove('description');
 }
 
 thumbnails[0].classList.add('selected');
@@ -112,11 +102,10 @@ thumbnails.forEach((thumbnail) => {
     activeImg.alt = thumbnailImg.alt;
     thumbnail.classList.add('selected');
     activeImg.parentElement.querySelector('.desc').innerHTML = thumbnailDesc.innerHTML;
+    
   });
 });
 
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
 
 leftArrow.addEventListener('click', () => {
   swapImage('left');
@@ -128,6 +117,7 @@ rightArrow.addEventListener('click', () => {
 
 function swapImage(direction) {
   const thumbnailsArray = Array.from(thumbnails);
+  const matrixArray = Array.from(matrices);
   const activeImgSrc = activeImg.src;
 
   const activeIndex = thumbnailsArray.findIndex((thumbnail) => thumbnail.querySelector('.thumbnailImg').src === activeImgSrc);
@@ -140,6 +130,7 @@ function swapImage(direction) {
   }
 
   const nextThumbnail = thumbnailsArray[nextIndex];
+  const nextMatrix = matrixArray[Math.floor(nextIndex / 4)];
   const nextThumbnailImg = nextThumbnail.querySelector('.thumbnailImg');
   const nextThumbnailDesc = nextThumbnail.querySelector('.description-hidden');
 
@@ -154,10 +145,12 @@ function swapImage(direction) {
 
   const containerRect = thumbnailContainer.getBoundingClientRect();
   const nextThumbnailRect = nextThumbnail.getBoundingClientRect();
-
+  
   if (nextThumbnailRect.left < containerRect.left || nextThumbnailRect.right > containerRect.right) {
-    thumbnailContainer.scrollLeft = nextThumbnail.offsetLeft - thumbnailContainer.offsetLeft;
+    const scrollLeft = nextMatrix.offsetLeft;
+    thumbnailContainer.scrollLeft = scrollLeft;
   }
+
 }
 
 
@@ -179,130 +172,3 @@ function scrollThumbnailsRight() {
   thumbnailContainer.scrollLeft += thumbnailContainer.offsetWidth;
 }
 
-
-
-/* let btnLeft = document.querySelector('.left-arrow');
-let btnRight = document.querySelector('.right-arrow');
-let thumbnailBtns = document.querySelectorAll('.thumbnail');
-let activeImg = document.querySelector('.activeSlide');
-
-const wrapper = document.querySelector('.wrapper');
-const thumbnailWrapper = document.querySelector('.thumbnail-wrapper');
-
-let currentSlide = 0;
-
-thumbnailBtns = [activeImg, ...thumbnailBtns];
-
-
-btnLeft.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + thumbnailBtns.length) % thumbnailBtns.length;
-    showSlide(currentSlide);
-  });
-  
-  btnRight.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % thumbnailBtns.length;
-    showSlide(currentSlide);
-  });
-  
-  thumbnailBtns.forEach((thumbnailBtn, index) => {
-    thumbnailBtn.addEventListener('click', () => {
-      currentSlide = index;
-      showSlide(currentSlide);
-    });
-  });
-
-  
-  function showSlide(slideIndex) {
-    thumbnailBtns.forEach((thumbnailBtn) => {
-      thumbnailBtn.classList.remove('activeSlide');
-    });
-  
-    activeImg.classList.remove('activeSlide');
-    
-    thumbnailBtns[slideIndex].classList.remove('thumbnail');
-    thumbnailBtns[slideIndex].classList.add('activeSlide');
-  
-    let description = activeImg.querySelector('.description');
-    if (description) {
-      description.classList.remove('description');
-      description.classList.add('description-hidden');
-    }
-  
-    activeImg.classList.add('thumbnail');
-    activeImg.querySelector('img').classList.add('thumbnailImg');
-    activeImg.querySelector('img').classList.remove('activeImg');
-    thumbnailBtns[slideIndex].querySelector('img').classList.add('activeImg');
-    thumbnailBtns[slideIndex].querySelector('img').classList.remove('thumbnailImg');
-    thumbnailBtns[slideIndex].querySelector('.desc').classList.add('description');
-    thumbnailBtns[slideIndex].querySelector('.desc').classList.remove('description-hidden');
-  
-    thumbnailWrapper.appendChild(activeImg);
-    wrapper.innerHTML = '';
-    activeImg = thumbnailBtns[slideIndex];
-    activeImg.querySelector('.description').style.display = "block";
-    wrapper.appendChild(btnLeft);
-    wrapper.appendChild(activeImg);
-    wrapper.appendChild(btnRight);
-
-    let descriptionsH = document.getElementsByClassName('description-hidden');
-
-    for (let i = 0; i < descriptionsH.length; i++) {
-        descriptionsH[i].style.display = "none";
-        descriptionsH[i].classList.add('description-hidden');
-        descriptionsH[i].classList.remove('description');
-    }
-
-    if (currentSlide === 0) {
-        activeImg.classList.remove('thumbnail');
-        activeImg.querySelector('.desc').classList.remove('description-hidden');
-        activeImg.querySelector('.desc').classList.add('description');
-      }
-
-  }
-  
-  showSlide(currentSlide); */
-
-
-  /* thumbnailBtns.forEach((thumbnailBtn, index) => {
-  thumbnailBtn.addEventListener('click', () => {
-    thumbnailBtns.forEach((thumbnail) => {
-      thumbnail.classList.remove('activeSlide');
-      thumbnail.classList.add('thumbnail');
-    });
-
-    activeImg.classList.remove('activeSlide');
-    thumbnailBtn.classList.remove('thumbnail');
-    thumbnailBtn.classList.add('activeSlide');
-
-    let description = thumbnailBtn.querySelector('.description-hidden');
-    if (description) {
-        description.classList.remove('description-hidden');
-        description.classList.add('description');
-      }
-
-    activeImg.classList.add('thumbnail');
-    activeImg.querySelector('img').classList.add('thumbnailImg');
-    activeImg.querySelector('img').classList.remove('activeImg');
-    thumbnailBtn.querySelector('img').classList.add('activeImg');
-    thumbnailBtn.querySelector('img').classList.remove('thumbnailImg');
-
-    thumbnailWrapper.appendChild(activeImg);
-    wrapper.innerHTML = '';
-    activeImg = thumbnailBtn;
-    wrapper.appendChild(btnLeft);
-    wrapper.appendChild(activeImg);
-    wrapper.appendChild(btnRight);
-
-    let descriptionShown = document.querySelector('.description');
-    if (descriptionShown) {
-      descriptionShown.style.display = 'none';
-      descriptionShown.classList.remove('description');
-      descriptionShown.classList.add('description-hidden');
-    }
-
-    descriptionShown = description;
-
-    currentSlide = index;
-
-  });
-}); */

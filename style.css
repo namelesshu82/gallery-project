@@ -109,16 +109,27 @@ body {
 }
 
 .thumbnail-wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 25px;
-    height: 20vw;
     width: 62vw;
+    height: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     white-space: nowrap;
     overflow: hidden;
     scroll-behavior: smooth;
+    position: relative;
 }
+
+.matrix {
+    flex: 0 0 62vw;
+    height: 15vw;
+    gap: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+}
+
 
 .thumbnail {
     margin-top: 25px;
